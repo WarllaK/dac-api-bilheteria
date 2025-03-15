@@ -6,7 +6,7 @@ spring:
     name: ticket-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5433/ticketOficce
+    url: jdbc:postgresql://localhost:5433/ticketOffice
     username: dac
     password: dac
     driver-class-name: org.postgresql.Driver

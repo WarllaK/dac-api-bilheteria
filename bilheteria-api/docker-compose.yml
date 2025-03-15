@@ -10,7 +10,7 @@ services:
     networks:
       - dac-network
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ticketOficce
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ticketOffice
       SPRING_DATASOURCE_USERNAME: dac
       SPRING_DATASOURCE_PASSWORD: dac
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
@@ -26,11 +26,11 @@ services:
     environment:
       - POSTGRES_PASSWORD=dac
       - POSTGRES_USER=dac
-      - POSTGRES_DB=dac
+      - POSTGRES_DB=ticketOffice
     networks:
       - dac-network
     ports:
-      - "5433:5433"
+      - "5433:5432"
     restart: always
 
 networks:
