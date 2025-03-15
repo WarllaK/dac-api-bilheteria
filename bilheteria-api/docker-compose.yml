@@ -1,0 +1,38 @@
+services:
+  ticket-sales-api:
+    build:
+      context: .  # Diretório atual (bilheteria-api)
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    ports:
+      - "8082:8082"  # Porta para ticket-sales-api
+    networks:
+      - dac-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ticketOficce
+      SPRING_DATASOURCE_USERNAME: dac
+      SPRING_DATASOURCE_PASSWORD: dac
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+    restart: always
+
+  postgres:
+    image: postgres
+    container_name: postgres-db-bilheteria
+    environment:
+      - POSTGRES_PASSWORD=dac
+      - POSTGRES_USER=dac
+      - POSTGRES_DB=dac
+    networks:
+      - dac-network
+    ports:
+      - "5433:5433"
+    restart: always
+
+networks:
+  dac-network:
+    driver: bridge
