@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-alpine
 WORKDIR /app
 
 # Copiar o arquivo JAR gerado para o container
-COPY /target/*.jar /app/app.jar
+COPY ./target/*.jar /app/app.jar
 
 # Expor a porta usada pela aplicação
 EXPOSE 8082
