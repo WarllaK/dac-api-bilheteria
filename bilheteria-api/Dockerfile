@@ -17,6 +17,7 @@ FROM amazoncorretto:17-alpine3.16-jdk AS build
 # Diretório de trabalho dentro do container
 WORKDIR /app
 
+
 # Copiar o JAR gerado pela etapa de build para o novo container
 COPY --from=builder /app/target/*.jar /app/app.jar
 
