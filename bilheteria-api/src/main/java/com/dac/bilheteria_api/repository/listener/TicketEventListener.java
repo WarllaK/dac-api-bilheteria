@@ -16,7 +16,7 @@ public class TicketEventListener {
     TicketRepository ticketRepository;
 
 
-    @RabbitListener(queues = "ticket.purchased.queue")
+    @RabbitListener(queues = "ticketGenerationQueue")
     public void handleTicketPurchased(TicketPublisherEvent event) {
         for (TicketPublisherEvent.TicketItem item : event.getTickets()) {
             for (int i = 0; i < item.getQuantity(); i++) {
