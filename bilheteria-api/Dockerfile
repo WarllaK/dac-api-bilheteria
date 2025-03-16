@@ -11,10 +11,10 @@ COPY src ./src
 # Rodar o comando de build para criar o arquivo JAR
 RUN mvn package -DskipTests
 
-# Usar a imagem base do OpenJDK para rodar o JAR
-FROM openjdk:17-jdk-alpine
+# Usar a imagem base do OpenJDK para rodar o JAR FROM openjdk:17-jdk-alpine # Use an official JDK base image for building
+FROM amazoncorretto:17-alpine3.16-jdk AS build
 
-# Diretório de trabalho dentro do container para a execução
+# Diretório de trabalho dentro do container
 WORKDIR /app
 
 # Copiar o JAR gerado pela etapa de build para o novo container
