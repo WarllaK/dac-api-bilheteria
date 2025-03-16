@@ -6,9 +6,9 @@ spring:
     name: ticket-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5433/ticketOficce
-    username: dac
-    password: dac
+    url: jdbc:postgresql://postgres-db-bilheteria:5432/ticketOffice
+    username: ticketOffice
+    password: ticketOffice
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -38,4 +38,4 @@ spring:
 
 queue:
   ticket:
-    purchase: ticket.purchased.queue
+    purchase: ticketGenerationQueue
