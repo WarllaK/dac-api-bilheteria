@@ -10,22 +10,22 @@ services:
     networks:
       - dac-network
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ticketOffice
-      SPRING_DATASOURCE_USERNAME: dac
-      SPRING_DATASOURCE_PASSWORD: dac
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db-bilheteria:5432/ticketOffice
+      SPRING_DATASOURCE_USERNAME: ticketOffice
+      SPRING_DATASOURCE_PASSWORD: ticketOffice
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create
       SPRING_RABBITMQ_HOST: rabbitmq
       SPRING_RABBITMQ_PORT: 5672
-      SPRING_RABBITMQ_USERNAME: guest
-      SPRING_RABBITMQ_PASSWORD: guest
+      SPRING_RABBITMQ_USERNAME: admin
+      SPRING_RABBITMQ_PASSWORD: admin123
     restart: always
 
   postgres:
     image: postgres
     container_name: postgres-db-bilheteria
     environment:
-      - POSTGRES_PASSWORD=dac
-      - POSTGRES_USER=dac
+      - POSTGRES_PASSWORD=ticketOffice
+      - POSTGRES_USER=ticketOffice
       - POSTGRES_DB=ticketOffice
     networks:
       - dac-network
@@ -35,4 +35,5 @@ services:
 
 networks:
   dac-network:
+    name: dac-network
     driver: bridge

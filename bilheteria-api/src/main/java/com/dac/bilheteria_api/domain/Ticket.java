@@ -2,9 +2,6 @@ package com.dac.bilheteria_api.domain;
 
 import com.dac.bilheteria_api.domain.enums.TicketStatus;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.UUID;
 
